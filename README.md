@@ -1,79 +1,85 @@
-# Plot.ly Homework - Belly Button Biodiversity
+# D3 Homework - Data Journalism and D3
 
-![Bacteria by filterforge.com](Images/bacteria.jpg)
+![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
-In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
+## Background
 
-The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
+Welcome to the newsroom! You've just accepted a data visualization position for a major metro paper. You're tasked with analyzing the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings.
 
-## Step 1: Plotly
+The editor wants to run a series of feature stories about the health risks facing particular demographics. She's counting on you to sniff out the first story idea by sifting through information from the U.S. Census Bureau and the Behavioral Risk Factor Surveillance System.
 
-1. Use the D3 library to read in `samples.json`.
+The data set included with the assignment is based on 2014 ACS 1-year estimates: [https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml), but you are free to investigate a different data set. The current data set includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
 
-2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
+### Before You Begin
 
-* Use `sample_values` as the values for the bar chart.
+1. Create a new repository for this project called `D3-challenge`. **Do not add this homework to an existing repository**.
 
-* Use `otu_ids` as the labels for the bar chart.
+2. Clone the new repository to your computer.
 
-* Use `otu_labels` as the hovertext for the chart.
+3. Inside your local git repository, create a directory for the D3 challenge. Use the folder name to correspond to the challenge: **D3_data_journalism**.
 
-  ![bar Chart](Images/hw01.png)
+4. This homeworks utilizes both **html** and **Javascript** so be sure to add all the necessary files. These will be the main files to run for analysis.
 
-3. Create a bubble chart that displays each sample.
+5. Push the above changes to GitHub or GitLab.
 
-* Use `otu_ids` for the x values.
+## Your Task
 
-* Use `sample_values` for the y values.
+### Core Assignment: D3 Dabbler (Required Assignment)
 
-* Use `sample_values` for the marker size.
+![4-scatter](Images/4-scatter.jpg)
 
-* Use `otu_ids` for the marker colors.
+You need to create a scatter plot between two of the data variables such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
 
-* Use `otu_labels` for the text values.
+Using the D3 techniques we taught you in class, create a scatter plot that represents each state with circle elements. You'll code this graphic in the `app.js` file of your homework directory—make sure you pull in the data from `data.csv` by using the `d3.csv` function. Your scatter plot should ultimately appear like the image at the top of this section.
 
-![Bubble Chart](Images/bubble_chart.png)
+* Include state abbreviations in the circles.
 
-4. Display the sample metadata, i.e., an individual's demographic information.
+* Create and situate your axes and labels to the left and bottom of the chart.
 
-5. Display each key-value pair from the metadata JSON object somewhere on the page.
-
-![hw](Images/hw03.png)
-
-6. Update all of the plots any time that a new sample is selected.
-
-Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
-
-![hw](Images/hw02.png)
-
-## Advanced Challenge Assignment (Optional)
-
-The following task is advanced and therefore optional.
-
-* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
-
-* You will need to modify the example gauge code to account for values ranging from 0 through 9.
-
-* Update the chart whenever a new sample is selected.
-
-![Weekly Washing Frequency Gauge](Images/gauge.png)
-
-## Deployment
-
-* Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
-
-* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
-
-## Hints
-
-* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
-
-* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
-
-### About the Data
-
-Hulcr, J. et al.(2012) _A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable_. Retrieved from: [http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/)
+* Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
 
 - - -
 
-© 2019 Trilogy Education Services
+### Bonus: Impress the Boss (Optional Assignment)
+
+Why make a static graphic when D3 lets you interact with your data?
+
+![7-animated-scatter](Images/7-animated-scatter.gif)
+
+#### 1. More Data, More Dynamics
+
+You're going to include more demographics and more risk factors. Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. Animate the transitions for your circles' locations as well as the range of your axes. Do this for two risk factors for each axis. Or, for an extreme challenge, create three for each axis.
+
+* Hint: Try binding all of the CSV data to your circles. This will let you easily determine their x or y values when you click the labels.
+
+#### 2. Incorporate d3-tip
+
+While the ticks on the axes allow us to infer approximate values for each circle, it's impossible to determine the true value without adding another layer of data. Enter tooltips: developers can implement these in their D3 graphics to reveal a specific element's data when the user hovers their cursor over the element. Add tooltips to your circles and display each tooltip with the data that the user has selected. Use the `d3-tip.js` plugin developed by [Justin Palmer](https://github.com/Caged)—we've already included this plugin in your assignment directory.
+
+![8-tooltip](Images/8-tooltip.gif)
+
+* Check out [David Gotz's example](https://bl.ocks.org/davegotz/bd54b56723c154d25eedde6504d30ad7) to see how you should implement tooltips with d3-tip.
+
+- - -
+
+### Assessment
+
+Your final product will be assessed on the following metrics:
+
+* Creation of a **new** repository on GitHub called `D3-Challenge` (note the kebab-case). Do not add to an already existing repo.
+
+* Completion of all steps in the core assignment
+
+* Coherency of scatter plot (labels, ticks)
+
+* Visual attraction
+
+* Professionalism
+
+* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
+
+**Good luck!**
+
+### Copyright
+
+Trilogy Education Services © 2019. All Rights Reserved.
