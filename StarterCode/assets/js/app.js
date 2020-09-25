@@ -42,12 +42,12 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     // Step 2: Create scale functions
     // ==============================
     var yLinearScale = d3.scaleLinear()
-      .domain([d3.min(healthData, d => d.healthcare)-3, d3.max(healthData,d => d.healthcare) +3])
-      .range([height, 0]);
+    .domain([d3.min(healthData, d => d.healthcare)-3, d3.max(healthData,d => d.healthcare) +3])
+    .range([height, 0]);
 
     var xLinearScale = d3.scaleLinear()
     .domain([d3.min(healthData, d => d.poverty)-1, d3.max(healthData,d => d.poverty) +1])
-      .range([0, width]);
+    .range([0, width]);
 
     // Step 3: Create axis functions
     // ==============================
@@ -57,11 +57,11 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     // Step 4: Append Axes to the chart
     // ==============================
     chartGroup.append("g")
-      .attr("transform", `translate(0, ${height})`)
-      .call(xAxis);
+    .attr("transform", `translate(0, ${height})`)
+    .call(xAxis);
 
     chartGroup.append("g")
-      .call(yAxis);
+    .call(yAxis);
 
     // Step 5: Create Circles
     // and state abbrv. for circles 
@@ -74,8 +74,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
     .attr("r", "15")
-    .attr("fill", "black")
-    .attr("opacity", ".5");
+
 
     var circlesText = textGroup.selectAll("text")
     .data(healthData)
@@ -84,7 +83,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .attr("class", "stateText")
     .attr("dx", d => xLinearScale(d.poverty))
     .attr("dy", d => yLinearScale(d.healthcare))
-    .attr(function(d){return(d.abbr);})
+    .text(function(d){return(d.abbr);})
 
     // Step 6: Initialize tool tip
     // ==============================
