@@ -7,7 +7,7 @@ var svgHeight = 500;
 var margin = {
     top: 20,
     right: 40,
-    bottom: 80,
+    bottom: 60,
     left: 100
   };
 
@@ -123,7 +123,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("class", "axisText")
       .text("Lacks Healthcare(%)");
 
-    chartGroup.append("text")
+    chartGroup.append("g")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("In Poverty (%)");
