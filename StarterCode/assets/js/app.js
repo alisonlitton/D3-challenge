@@ -83,7 +83,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     .append("text")
     .attr("class", "stateText")
     .attr("dx", d => xLinearScale(d.poverty))
-    .attr("y", d => yLinearScale(d.healthcare))
+    .attr("dy", d => yLinearScale(d.healthcare))
     .attr(function(d){return(d.abbr);})
 
     // Step 6: Initialize tool tip
@@ -128,7 +128,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("In Poverty (%)");
-      
+
   }).catch(function(error) {
     console.log(error);
   });
