@@ -42,7 +42,7 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     // Step 2: Create scale functions
     // ==============================
     var yLinearScale = d3.scaleLinear()
-    .domain([d3.min(healthData, d => d.healthcare)-3, d3.max(healthData,d => d.healthcare) +3])
+    .domain([d3.min(healthData, d => d.healthcare) -3, d3.max(healthData,d => d.healthcare) +3])
     .range([height, 0]);
 
     var xLinearScale = d3.scaleLinear()
@@ -67,23 +67,23 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
     // and state abbrv. for circles 
     // ==============================
     var circlesGroup = chartGroup.selectAll("circle")
-    .data(healthData)
-    .enter()
-    .append("circle")
-    .attr("class", "stateCircle")
-    .attr("cx", d => xLinearScale(d.poverty))
-    .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", "15")
+        .data(healthData)
+        .enter()
+        .append("circle")
+        .attr("class", "stateCircle")
+        .attr("cx", d => xLinearScale(d.poverty))
+        .attr("cy", d => yLinearScale(d.healthcare))
+        .attr("r", "15")
 
 
     var circlesText = textGroup.selectAll("text")
-    .data(healthData)
-    .enter()
-    .append("text")
-    .attr("class", "stateText")
-    .attr("dx", d => xLinearScale(d.poverty))
-    .attr("dy", d => yLinearScale(d.healthcare))
-    .text(function(d){return(d.abbr);})
+        .data(healthData)
+        .enter()
+        .append("text")
+        .attr("class", "stateText")
+        .attr("dx", d => xLinearScale(d.poverty))
+        .attr("dy", d => yLinearScale(d.healthcare))
+        .text(function(d){return(d.abbr);})
 
     // Step 6: Initialize tool tip
     // ==============================
@@ -119,12 +119,12 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 40)
       .attr("x", 0 - (height / 2))
-      .attr("class", "axisText")
+      .attr("class", "aText")
       .text("Lacks Healthcare(%)");
 
     chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
-      .attr("class", "axisText")
+      .attr("class", "aText")
       .text("In Poverty (%)");
 
   }).catch(function(error) {

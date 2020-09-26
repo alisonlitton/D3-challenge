@@ -28,11 +28,13 @@
   font-family: sans-serif;
   fill: #fff;
   text-anchor: middle;
+  font-size: 14px;
 }
 
 .stateCircle {
   fill: #89bdd3;
   stroke: #e3e3e3;
+  stroke-width: 0.5;
 }
 
 .chart {
@@ -42,7 +44,7 @@
 
 .d3-tip {
   padding: 6px;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1;
   line-height: 1.5em;
   color: #fff;
