@@ -1,13 +1,13 @@
 // @TODO: YOUR CODE HERE!
 //Healthcare vs. Poverty 
 
-var svgWidth = 960;
-var svgHeight = 500;
+var svgWidth = 900;
+var svgHeight = 600;
 
 var margin = {
-    top: 20,
+    top: 40,
     right: 40,
-    bottom: 60,
+    bottom: 100,
     left: 100
   };
 
@@ -110,8 +110,8 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       })
         // onmouseout event
         .on("mouseout", function(d){
-            toolTip.hide(d);
-        })
+        toolTip.hide(d);
+        });
 
 
     // Create axes labels
@@ -119,11 +119,10 @@ d3.csv("assets/data/data.csv").then(function(healthData) {
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left + 40)
       .attr("x", 0 - (height / 2))
-      .attr("dy", "1em")
       .attr("class", "axisText")
       .text("Lacks Healthcare(%)");
 
-    chartGroup.append("g")
+    chartGroup.append("text")
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("In Poverty (%)");
